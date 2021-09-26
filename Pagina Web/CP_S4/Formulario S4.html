@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“Formulario de registro</title>
+</head>
+<body>
+    <h1>Registro para vacunación COVID-19</h1>
+
+    <form action="" method="GET">
+        <table>
+            <tr>
+                <td>Nombre:</td>
+
+                <td><input type="text" maxlength="20" required></td>
+            </tr>
+            <tr>
+                <td>Apellidos:</td>
+                <td><input type="text" maxlength="20" required></td>
+            </tr>
+            <tr>
+                <td>Sexo:</td>
+                <td>
+                    <input type="radio" name="r-vig" value="1">Hombre
+                    <input type="radio" name="r-vig" value="2">Mujer
+                </td>
+            </tr>
+            <tr>
+                <td>Correo:</td>
+                <td><input type="text" maxlength="30" required></td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td><input type="password" maxlength="8" required></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><input type="checkbox" name="Condiciones">Declaro haber leído y aceptar las
+                    condiciones generales del programa y la normativa sobre protección de datos
+                </td>
+            </tr>
+            <!--<tr><td><input type="submit"value="Enviar"></td>
+            </tr>-->
+            <tr><td><button type="submit">Enviar</button></td>
+            </tr>
+
+        </table>
+    </form>
+    <br>
+    <a href="http://www.google.com">Google en la misma pestaña</a>
+    <br>
+    <a href="http://www.google.com" target="_blank">Google en otra pestaña</a>
+</body>
+</html>
