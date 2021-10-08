@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="style.css">-->
     <style type="text/css">
-        h1 {font-family: Serif;text-align: center;color: #377ba8; background-color:lightgrey; }
+        h1 {font-family: Serif;text-align: center;color: #377ba8; background: rgb(93,93,93);
+background: linear-gradient(90deg, rgba(93,93,93,1) 0%, rgba(251,251,251,1) 50%, rgba(93,93,93,1) 100%); }
         form {width: 350px;padding: 16px;margin: auto;border-radius: 8px;background-color: #ccc;}
         input {background-color:blanchedalmond;border-radius: 8px;}
-        button {text-align: center;font-weight: bold;border-radius: 8px;}
+        /*button {text-align: center;font-weight: bold;border-radius: 8px;}*/
+        #btn {
+            font-size: 20px;
+            font-weight: bolder;
+            text-align: center;border-radius: 8px;
+            /*text-indent: 40px;*/
+        }
     </style>
     <title>“Formulario de registro</title>
 </head>
@@ -19,7 +26,6 @@
         <table>
             <tr>
                 <td>Nombre:</td>
-
                 <td><input type="text" maxlength="20" required></td>
             </tr>
             <tr>
@@ -50,7 +56,7 @@
             </tr>
             <tr>
                 <td>
-                    <button type="submit">Enviar</button>
+                    <button id = "btn" type="submit">Enviar</button>
                 </td>
             </tr>
         </tr>

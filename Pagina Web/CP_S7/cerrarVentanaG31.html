@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var contador = parseInt(window.location.search.split('=')[1]);
+        /*
+        setInterval => Se ejecuta n veces cada vez que transcurra el tiempo
+        param 1 - Función a ejecutar
+        param 2 - Tiempo(milisegundos)
+        */
+        setInterval(decrementar, 930);
+
+        function decrementar(){
+            document.write('<h1>Esta ventana se cerrará en ' + contador + ' segundos</h1>');
+            contador--;
+        }
+    </script>
+</body>
+</html>

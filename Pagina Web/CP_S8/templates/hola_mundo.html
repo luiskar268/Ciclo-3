@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style type="text/css">
+        h1 {text-align: center;color: blue;}
+    </style>
+</head>
+<body>
+    <br>
+    {% if tipo == 1 %}
+        <h1>{{saludo2}}</h1>
+    {% else %}
+        <h1>{{saludo3}}</h1>
+    {% endif %}
+    <br>
+    <br>
+    {% if tipo == 1 %}
+        <h1>{{saludo}} {{nombreM}}</h1>
+    {% else %}
+        <h1>{{saludo}} {{nombreH}}</h1>
+    {% endif %}
+    <br>
+    <ul>
+        {% for todo in todos%}
+            <li>{{ todo }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

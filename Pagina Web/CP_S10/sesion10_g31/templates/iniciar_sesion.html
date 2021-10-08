@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Iniciar Sesión</h1>
+<form action="" method="get" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.usuario.label }}<br>
+        {{ form.usuario(size=30)}}<br>
+    </p>
+    <p>
+        {{ form.contrasena.label }}<br>
+        {{ form.contrasena(size=30) }}<br>
+    </p>
+    <p>{{ form.recordar() }} {{ form.recordar.label }}</p>
+    <p>{{ form.enviar(class_='btn btn-primary') }}</p>
+</form>
+{% endblock %}

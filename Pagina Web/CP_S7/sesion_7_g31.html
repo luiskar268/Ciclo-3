@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion 7 G31</title>
+</head>
+
+<body onresize="alert('Cambió tamaño pantalla')">
+    <h1>Este es el título de la página</h1>
+    <script>
+        //Forma 1 de crear objetos
+        var persona = {
+            nombre: 'Manuel',
+            apellido: 'Miranda',
+            edad: 30,
+            hobbies: ['Estudiar', 'rumba'],
+            rutina: {
+                manana: 'Labores',
+                tarde: 'Ver TV',
+                noche: 'Hacer deporte'
+            },
+            saludo: function (n) {
+                alert('Hola mi nombre es ' + n);
+            }
+        }
+        console.log(persona);
+        //Convirtiendo objeto a json string
+        var jsonString = JSON.stringify(persona);
+        console.log(jsonString);
+        //Convirtiendo json string a objeto
+        var objeto = JSON.parse(jsonString);
+        //Obtener informacion de los objetos
+        console.log('Mi rutina en la tardes es ' + persona.rutina.tarde);
+        console.log('Mi edad es: ' + persona['edad']);
+    </script>
+    <script>
+        //Forma 2 de crear objetos
+        var vehiculo = new Object();
+        vehiculo.noLlantas = 4;
+        vehiculo.noPuertas = 2;
+        vehiculo.matricula = 'abc123'
+    </script>
+    <script>
+        //Forma 3 de crear objetos
+        var producto = new Object();
+        producto['nombre'] = 'Manzana';
+        producto['precio'] = 5000;
+    </script>
+    <button onclick="abrirEnlace();"> abrir enlace</button>
+    <script>
+        function abrirEnlace() {
+            window.open("https://www.google.com", "_blank", "width=300,height=300");
+        }
+    </script>
+
+    <script>
+        var contador = 5;
+        /*
+        setTimeout => Se ejecuta una sola vez, después de transcurror el tiempo
+        param 1 - Función a ejecutar
+        param 2 - Tiempo(milisegundos)
+        */
+        //setTimeout("cerrar()", 5000);
+        //var nuevaVentana = window.open("cerrarVentanaG31.html?contador="+contador);
+        //nuevaVentana.document.write('<h1>Nueva Ventana</h1>');
+        function cerrar() {
+            // nuevaVentana.close();
+        }
+    </script>
+
+    <center>
+        <input type='text' placeholder="Pierde foco" onBlur="alert('Pierde foco!')">
+        <input type='text' placeholder="gana foco" onFocus="window.alert('Gana foco')">
+        <input type='text' placeholder=" texto cambia" onchange="alert('cambio en el texto')">
+    </center>
+
+    <input type="text" id="a" />
+    <input type="text" id="b" />
+    <button id="operar">
+        Sumar
+    </button>
+    <script>
+        console.log('************* CALLBACKS **************');
+        function Sumar(a, b, callback) {
+            return callback(a + b);
+        }
+
+        document.querySelector("#operar").addEventListener('click', function () {
+            var a = parseInt(document.querySelector("#a").value),
+                b = parseInt(document.querySelector("#b").value);
+
+            Sumar(a, b, function (r) {
+                console.log('El resultado es ' + r);
+            })
+        })
+    </script>
+
+    <script>
+        console.log('***************** PROMESAS ******************');
+        var promesa1 = function() {
+            return new Promise(function(resolver, cancelar) {
+                 setTimeout(function() {
+                    console.log("pasan 4 segundos");
+                    resolver();
+                 }, 4000);
+            });
+        }
+         var promesa2 = function() {
+            return new Promise(function(resolver, cancelar) {
+               setTimeout(function() {
+                    console.log("pasan 1 segundos");
+                    resolver();
+                }, 1000);
+             })
+         }
+        promesa1().then(promesa2).then(function() {
+             console.log("termino");
+        });
+    
+    </script>
+    <script>
+        console.log('****************** PROMESA XMLHttpRequest **********************');
+        function getPosts() {
+            return new Promise(function(resolve, reject) {
+            var req = new XMLHttpRequest();
+                req.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+        
+                req.onload = function() {//Si  el envio se completó satisfactoriamente
+                  if (req.status == 200) {
+                    resolve(JSON.parse(req.response));
+                  }
+                  else {
+                    reject();
+                  }
+                };
+        
+                req.send();
+            })
+        }
+        
+        getPosts().then(r =>{
+            console.log(r);
+          }).catch(() => {
+            console.log('Algo salió mal');
+          });
+    </script>
+    <script>
+        console.log('********** Async/await *****************')
+        function despuesde2segundos() {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve('resuelto');
+              }, 2000);
+            });
+          }
+          async function asyncCall() {
+            console.log('ejecutando');
+            const result = await despuesde2segundos();
+            console.log(result);
+            // expected output: “resuelto“
+          }
+          asyncCall();
+          
+    </script>
+</body>
+
+</html>
